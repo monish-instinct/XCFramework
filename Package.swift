@@ -10,11 +10,10 @@ let package = Package(
     products: [
         .library(
             name: "MyNeuralFramework",
-            targets: ["MyNeuralFramework"]
+            targets: ["MyNeuralFrameworkWrapper"]
         )
     ],
     dependencies: [
-        // Add these only if you're actually using these packages in your Swift code
         .package(url: "https://github.com/stoneburner/sqlcipher.git", from: "4.5.0"),
         .package(url: "https://github.com/razorpay/razorpay-pod.git", from: "1.0.0")
     ],
@@ -23,6 +22,14 @@ let package = Package(
             name: "MyNeuralFramework",
             url: "https://github.com/monish-instinct/XCFramework/releases/download/samplexc/MyNeuralFramework.xcframework.zip",
             checksum: "2b9b13b71e41eef3743c194075f42b50ef0b3573fd026aa4aace26860d11e8e8"
+        ),
+        .target(
+            name: "MyNeuralFrameworkWrapper",
+            dependencies: [
+                "MyNeuralFramework",
+                .product(name: "SQLCipher", package: "sqlcipher"),
+                .product(name: "razorpay-pod", package: "razorpay-pod")
+            ]
         )
     ]
 )
