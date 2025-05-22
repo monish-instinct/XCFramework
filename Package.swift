@@ -21,7 +21,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "MyNeuralFramework",
-            url: "https://github.com/monish-instinct/SampleXC/releases/download/samplexc/MyNeuralFramework.xcframework.zip",
+            url: "https://github.com/monish-instinct/XCFramework/releases/download/samplexc/MyNeuralFramework.xcframework.zip",
             checksum: "2b9b13b71e41eef3743c194075f42b50ef0b3573fd026aa4aace26860d11e8e8"
         )
     ]
